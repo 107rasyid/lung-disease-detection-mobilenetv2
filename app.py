@@ -36,7 +36,7 @@ def f1_metric(y_true, y_pred):
     return 2 * (p * r) / (p + r + 1e-10)
 
 # --- Load Model ---
-MODEL_PATH = "model/skripsi_model_cnn.h5"
+MODEL_PATH = "model/mobilenetv2.h5"
 with custom_object_scope({
     'precision_metric': precision_metric,
     'recall_metric': recall_metric,
@@ -73,9 +73,9 @@ def generate_log(predictions, class_labels, predicted_label):
     return log_text
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Klasifikasi Citra Medis", layout="centered")
-st.title("🩺 Aplikasi Klasifikasi Citra Medis")
-st.write("Upload gambar medis (format .jpg, .png, .jpeg), dan sistem akan mengklasifikasikannya.")
+st.set_page_config(page_title="Klasifikasi Citra X-ray", layout="centered")
+st.title("🩺 Aplikasi Klasifikasi Citra X-ray")
+st.write("Upload citra X-ray (format .jpg, .png, .jpeg), dan sistem akan mengklasifikasikannya.")
 
 uploaded_file = st.file_uploader("Upload File", type=["jpg", "jpeg", "png"])
 
